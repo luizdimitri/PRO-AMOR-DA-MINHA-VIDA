@@ -151,11 +151,6 @@
 <body>
 
   <div class="container">
-    <!-- Player de Música (Música do MC Bruninho) -->
-    <audio id="bg-music" loop autoplay>
-      <source src="voce-me-conquistou.mp3" type="audio/mpeg">
-    </audio>
-
     <!-- Título do Site -->
     <h1>🐱🎀 Para Maria Eduarda, O Meu Grande Amor 🎀🐱</h1>
     
@@ -169,17 +164,17 @@
 
     <div class="grid">
       <script>
-        // 10 Cartas com Frases Feitas Sob Medida
+        // 10 Cartas com Frases e Nomes dos Arquivos
         const cardsData = [
-          { emoji: "🐱", frente: "Onde tudo começou...", foto: "foto02.jpg", verso: "Naquele dia no parque, olhei no seu olho e senti o maior amor do mundo! 💖" },
-          { emoji: "🎀", frente: "Um selinho inesquecível!", foto: "foto01.jpg", verso: "Seu beijo e seu carinho transformam qualquer dia em um momento mágico. 💋" },
-          { emoji: "💖", frente: "A gatinha mais charmosa!", foto: "foto03.jpg", verso: "Sua risada, seu jeito solto e essa língua de fora me encantam demais! 🤪💗" },
-          { emoji: "👑", frente: "Estilo & Perfeição", foto: "foto04.jpg", verso: "A mulher mais linda e estilosa desse mundo todinho! Minha princesa. 👑" },
-          { emoji: "🌸", frente: "Amo estar do seu lado!", foto: "foto05.jpg", verso: "Perto de você me sinto o cara mais sortudo e feliz da terra. 🥰" },
-          { emoji: "✨", frente: "Nossas noites juntos...", foto: "foto06.jpg", verso: "Seu sorriso ilumina até a noite mais escura. Minha luz! 🌙✨" },
-          { emoji: "💌", frente: "O toque que arrepia...", foto: "foto07.jpg", verso: "Quando me encosto em você e vejo esse sorriso lindo, meu coração dispara. 💓" },
-          { emoji: "🌷", frente: "Aconchego & Amor", foto: "foto08.jpg", verso: "Ficar abraçado com você e sentir seu cheiro é o meu lugar preferido. 🏡" },
-          { emoji: "💍", frente: "Para a vida toda!", foto: "foto09.jpg", verso: "Ao seu lado quero viver cada segundo e construir o nosso futuro. 🔐" },
+          { emoji: "🎀", frente: "Um selinho inesquecível!", foto: "foto1.jpg", verso: "Seu beijo e seu carinho transformam qualquer dia em um momento mágico. 💋" },
+          { emoji: "🐱", frente: "Onde tudo começou...", foto: "foto2.jpg", verso: "Naquele dia no parque, olhei no seu olho e senti o maior amor do mundo! 💖" },
+          { emoji: "💖", frente: "A gatinha mais charmosa!", foto: "foto3.jpg", verso: "Sua risada, seu jeito solto e essa língua de fora me encantam demais! 🤪💗" },
+          { emoji: "👑", frente: "Estilo & Perfeição", foto: "foto4.jpg", verso: "A mulher mais linda e estilosa desse mundo todinho! Minha princesa. 👑" },
+          { emoji: "🌸", frente: "Amo estar do seu lado!", foto: "foto5.jpg", verso: "Perto de você me sinto o cara mais sortudo e feliz da terra. 🥰" },
+          { emoji: "✨", frente: "Nossas noites juntos...", foto: "foto6.jpg", verso: "Seu sorriso ilumina até a noite mais escura. Minha luz! 🌙✨" },
+          { emoji: "💌", frente: "O toque que arrepia...", foto: "foto7.jpg", verso: "Quando me encosto em você e vejo esse sorriso lindo, meu coração dispara. 💓" },
+          { emoji: "🌷", frente: "Aconchego & Amor", foto: "foto8.jpg", verso: "Ficar abraçado com você e sentir seu cheiro é o meu lugar preferido. 🏡" },
+          { emoji: "💍", frente: "Para a vida toda!", foto: "foto9.jpg", verso: "Ao seu lado quero viver cada segundo e construir o nosso futuro. 🔐" },
           { emoji: "💕", frente: "Meu amor por você...", foto: "foto10.jpg", verso: "Um sentimento verdadeiro, profundo e eterno. Te amo infinitamente! 💖" }
         ];
 
@@ -233,14 +228,6 @@
     }
     
     updateTimer();
-
-    // Tocar áudio ao dar o primeiro toque na tela
-    document.body.addEventListener('click', function() {
-      var audio = document.getElementById('bg-music');
-      if (audio.paused) {
-        audio.play();
-      }
-    }, { once: true });
   </script>
 </body>
 </html>
