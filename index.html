@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o Meu Grande Amor 💖</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6f0;
+      background-image: radial-gradient(#ffb6c1 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      color: #5a2a3a;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 25px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+      border: 4px solid #ff99c8;
+      position: relative;
+    }
+
+    /* Título e Contador */
+    h1 {
+      font-size: 2.1em;
+      color: #d81b60;
+      margin-bottom: 12px;
+    }
+    .timer-box {
+      background: #ffe0ec;
+      padding: 15px 25px;
+      border-radius: 50px;
+      border: 2px dashed #ff66a3;
+      display: inline-block;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #c2185b;
+      font-size: 1.2em;
+    }
+
+    .subtitle {
+      font-size: 1.3em;
+      color: #c2185b;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    /* Grid das 10 Cartas Surpresa */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    /* Efeito de Giro 3D (Flip Card) */
+    .card {
+      background-color: transparent;
+      height: 240px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+    }
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border: 3px solid #ffb3d9;
+    }
+
+    /* Frente da Carta (A Surpresa Escondida) */
+    .card-front {
+      background: linear-gradient(135deg, #ffccd5, #ffb3c6);
+      color: #800040;
+      font-weight: bold;
+      box-shadow: 0 5px 12px rgba(255, 105, 180, 0.2);
+    }
+    .card-front .emoji {
+      font-size: 2.8em;
+      margin-bottom: 8px;
+    }
+    .card-front p {
+      font-size: 0.9em;
+      line-height: 1.3;
+    }
+
+    /* Verso da Carta (Foto Revelada + Frase Romântica) */
+    .card-back {
+      background-color: #fff;
+      transform: rotateY(180deg);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+    }
+    .card-back img {
+      width: 100%;
+      height: 135px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #ff99c8;
+    }
+    .card-back p {
+      font-size: 0.8em;
+      margin-top: 8px;
+      color: #d81b60;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    /* Texto Romântico */
+    .story-section {
+      background: #fff5f8;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: left;
+      line-height: 1.8;
+      font-size: 1.05em;
+      border: 2px solid #ffb3d9;
+      box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.3);
+    }
+    .story-section h2 {
+      text-align: center;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Player de Música (Música do MC Bruninho) -->
+    <audio id="bg-music" loop autoplay>
+      <source src="voce-me-conquistou.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Título do Site -->
+    <h1>🐱🎀 Para Maria Eduarda, O Meu Grande Amor 🎀🐱</h1>
+    
+    <!-- Contador de Tempo -->
+    <div class="timer-box" id="timer">
+      Calculando nosso tempo juntos...
+    </div>
+
+    <!-- Seção de Cartas Surpresa -->
+    <p class="subtitle">✨ Clique em cada cartinha para revelar nossas fotos e memórias! 💌</p>
+
+    <div class="grid">
+      <script>
+        // 10 Cartas com Frases Feitas Sob Medida
+        const cardsData = [
+          { emoji: "🐱", frente: "Onde tudo começou...", foto: "foto1.jpg", verso: "Naquele dia no parque, olhei no seu olho e senti o maior amor do mundo! 💖" },
+          { emoji: "🎀", frente: "Um selinho inesquecível!", foto: "foto2.jpg", verso: "Seu beijo e seu carinho transformam qualquer dia em um momento mágico. 💋" },
+          { emoji: "💖", frente: "A gatinha mais charmosa!", foto: "foto3.jpg", verso: "Sua risada, seu jeito solto e essa língua de fora me encantam demais! 🤪💗" },
+          { emoji: "👑", frente: "Estilo & Perfeição", foto: "foto4.jpg", verso: "A mulher mais linda e estilosa desse mundo todinho! Minha princesa. 👑" },
+          { emoji: "🌸", frente: "Amo estar do seu lado!", foto: "foto5.jpg", verso: "Perto de você me sinto o cara mais sortudo e feliz da terra. 🥰" },
+          { emoji: "✨", frente: "Nossas noites juntos...", foto: "foto6.jpg", verso: "Seu sorriso ilumina até a noite mais escura. Minha luz! 🌙✨" },
+          { emoji: "💌", frente: "O toque que arrepia...", foto: "foto7.jpg", verso: "Quando me encosto em você e vejo esse sorriso lindo, meu coração dispara. 💓" },
+          { emoji: "🌷", frente: "Aconchego & Amor", foto: "foto8.jpg", verso: "Ficar abraçado com você e sentir seu cheiro é o meu lugar preferido. 🏡" },
+          { emoji: "💍", frente: "Para a vida toda!", foto: "foto9.jpg", verso: "Ao seu lado quero viver cada segundo e construir o nosso futuro. 🔐" },
+          { emoji: "💕", frente: "Meu amor por você...", foto: "foto10.jpg", verso: "Um sentimento verdadeiro, profundo e eterno. Te amo infinitamente! 💖" }
+        ];
+
+        cardsData.forEach((item) => {
+          document.write(`
+            <div class="card" onclick="this.classList.toggle('flipped')">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="emoji">${item.emoji}</div>
+                  <p>${item.frente}</p>
+                </div>
+                <div class="card-back">
+                  <img src="${item.foto}" alt="Nossa Foto">
+                  <p>${item.verso}</p>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+      </script>
+    </div>
+
+    <!-- Carta Romântica -->
+    <div class="story-section">
+      <h2>📖 Nossa História de Amor ✨</h2>
+      <p>Tudo começou naquele ambiente da escola, no exato dia em que meus olhos te viram pela primeira vez. Naquele segundo, o mundo ao meu redor pareceu parar e só existia você.</p>
+      <br>
+      <p>Lembro exatamente de como fiquei ansioso ao fim das aulas... Na saída da escola, eu queria muito falar com você e pedir seu Instagram, mas precisei fingir uma ligação no celular só para disfarçar o nervosismo e criar coragem de me aproximar! 📱😅</p>
+      <br>
+      <p>Mas no momento em que te toquei e te olhei bem de perto, toda a ansiedade deu lugar a uma certeza absoluta: ali nascia um amor e uma paixão que eu nunca tinha sentido antes. Olhar nos seus olhos de perto é uma das sensações mais mágicas da minha vida.</p>
+      <br>
+      <p>Sou completamente apaixonado por você, pela sua beleza, pela sua essência e por tudo o que somos juntos. Tenho um orgulho enorme e uma admiração gigante pela pessoa incrível que você é. Que a gatinha Marie continue enfeitando o nosso caminho! Amo você para sempre, Maria Eduarda. 💖🐱</p>
+    </div>
+  </div>
+
+  <script>
+    // Contador: 16/03/2026 até hoje
+    function updateTimer() {
+      const startDate = new Date(2026, 2, 16); // 16 de Março de 2026
+      const now = new Date();
+      
+      let diffMs = now - startDate;
+      if (diffMs < 0) diffMs = 0;
+
+      const daysTotal = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const months = Math.floor(daysTotal / 30.4375);
+      const remainingDays = Math.floor(daysTotal % 30.4375);
+
+      document.getElementById("timer").innerHTML = 
+        `Juntos há <strong>${months} meses</strong> e <strong>${remainingDays} dias</strong> 💕`;
+    }
+    
+    updateTimer();
+
+    // Tocar áudio ao dar o primeiro toque na tela
+    document.body.addEventListener('click', function() {
+      var audio = document.getElementById('bg-music');
+      if (audio.paused) {
+        audio.play();
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
